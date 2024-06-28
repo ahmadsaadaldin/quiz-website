@@ -57,7 +57,7 @@
     background-color: #028a5e;
   }
   .quez{display: flex;  width:100%; height:80%;align-items: center; justify-content: center; color: #fff; margin: 0;}
-  .q{width: 80%; background-color:#3f52e3 ; font-size: 20px;padding: 1%; max-height: fit-content; border-radius: 40px;margin: 0; }
+  .q{width: 80%; background-color:#3f52e3 ; font-size: 20px;padding: 1%; max-height: fit-content; border-radius: 11px;margin: 0; }
   .q>div{padding: 1.5%;}
   .buttona {
     border: none;
@@ -88,7 +88,7 @@ margin-right: 10%;}
 .qnum{
 
     display: grid;
-    gap: 10px;
+    
     grid-template-columns: auto auto auto auto auto auto ;
     width: 30%;
     margin-left: 11%;
@@ -99,4 +99,20 @@ margin-right: 10%;}
     
 }
 .qnum>div{width:2rem;height:1rem; background-color: #FFCE00;}
-    
+
+.qnum div {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background-color: lightgray;
+    cursor: pointer;
+  }
+  
+  .qnum div:hover {
+    background-color: darkgray;
+  }
+  
+  .qnum .current-page {
+    background-color: yellow;
+  }
+  
