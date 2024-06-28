@@ -40,24 +40,28 @@
 
   <script>
     const pageNumber = 1; // Adjust this for each page (1 to 6)
-
+  
     function startTimer(duration, display) {
       let timer = duration, minutes, seconds;
-      setInterval(function () {
+      const intervalId = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-
+  
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
-
+  
         display.textContent = minutes + ":" + seconds;
-
+  
         if (--timer < 0) {
+          clearInterval(intervalId);
           timer = 0;
         }
+  
+        // Save remaining time to localStorage
+        localStorage.setItem('remainingTime', timer);
       }, 1000);
     }
-
+  
     function saveAnswer() {
       const selectedOption = document.querySelector('input[name="question"]:checked');
       if (selectedOption) {
@@ -65,18 +69,18 @@
         const correctAnswer = "2"; // Adjust the correct answer for each page
         let correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
         let incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
-
+  
         if (selectedAnswer === correctAnswer) {
           correctAnswers.push({ page: pageNumber, answer: selectedAnswer });
         } else {
           incorrectAnswers.push({ page: pageNumber, selectedAnswer: selectedAnswer, correctAnswer: correctAnswer });
         }
-
+  
         localStorage.setItem('correctAnswers', JSON.stringify(correctAnswers));
         localStorage.setItem('incorrectAnswers', JSON.stringify(incorrectAnswers));
       }
     }
-
+  
     function loadAnswer() {
       const savedAnswer = JSON.parse(localStorage.getItem('selectedAnswers')) || {};
       if (savedAnswer[pageNumber]) {
@@ -86,7 +90,7 @@
         }
       }
     }
-
+  
     function highlightCurrentPage() {
       const pageDivs = document.querySelectorAll('.qnum div');
       pageDivs.forEach(div => {
@@ -96,7 +100,7 @@
         }
       });
     }
-
+  
     function addHoverEffect() {
       const pageDivs = document.querySelectorAll('.qnum div');
       pageDivs.forEach(div => {
@@ -110,20 +114,23 @@
         });
       });
     }
-
+  
     window.onload = function () {
-      const fiftyMinutes = 50 * 60,
-        display = document.querySelector('#timer');
-      startTimer(fiftyMinutes, display);
+      const storedTime = localStorage.getItem('remainingTime');
+      const fiftyMinutes = 50 * 60;
+      const duration = storedTime ? parseInt(storedTime, 10) : fiftyMinutes;
+      const display = document.querySelector('#timer');
+      startTimer(duration, display);
       loadAnswer();
       highlightCurrentPage();
       addHoverEffect();
-
+  
       const nextButton = document.getElementById('nextButton');
       nextButton.addEventListener('click', function(event) {
         saveAnswer();
       });
     };
   </script>
+  
 </body>
 </html>
