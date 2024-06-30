@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Result Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .result-container {
+      display: inline-block;
+      text-align: left;
+    }
+    .result {
+      margin-bottom: 10px;
+    }
+    .correct {
+      color: white;
+    }
+    .incorrect {
+      color: red;
+    }
+    .summary {
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Quiz Result</h1>
+  <div class="result-container" id="resultContainer"></div>
+  <div class="summary">
+    <p id="score"></p>
+    <p id="correctCount"></p>
+    <p id="incorrectCount"></p>
+  </div>
+  <script>
+    function loadResults() {
+      const correctAnswers = JSON.parse(localStorage.getItem('correctAnswers')) || [];
+      const incorrectAnswers = JSON.parse(localStorage.getItem('incorrectAnswers')) || [];
+      const resultContainer = document.getElementById('resultContainer');
+
+      correctAnswers.forEach((item, index) => {
+        const resultDiv = document.createElement('div');
+        resultDiv.classList.add('result', 'correct');
+        resultDiv.textContent = `Question ${item.page}: Correct`;
+        resultContainer.appendChild(resultDiv);
+      });
+
+      incorrectAnswers.forEach((item, index) => {
+        const resultDiv = document.createElement('div');
+        resultDiv.classList.add('result', 'incorrect');
+        resultDiv.textContent = `Question ${item.page}: Incorrect (Your Answer: ${item.selectedAnswer}, Correct Answer: ${item.correctAnswer})`;
+        resultContainer.appendChild(resultDiv);
+      });
+
+      const totalQuestions = correctAnswers.length + incorrectAnswers.length;
+      const score = correctAnswers.length;
+      const passMark = Math.ceil(totalQuestions * 0.5);
+
+      if (score >= passMark) {
+        document.body.style.backgroundColor = 'green';
+      } else {
+        document.body.style.backgroundColor = 'red';
+      }
+
+      document.getElementById('score').textContent = `Score: ${score} / ${totalQuestions}`;
+      document.getElementById('correctCount').textContent = `Correct Answers: ${correctAnswers.length}`;
+      document.getElementById('incorrectCount').textContent = `Incorrect Answers: ${incorrectAnswers.length}`;
+
+      // Clear localStorage after displaying results
+      localStorage.removeItem('correctAnswers');
+      localStorage.removeItem('incorrectAnswers');
+      localStorage.removeItem('remainingTime');
+    }
+
+    window.onload = loadResults;
+  </script>
+</body>
+</html>
