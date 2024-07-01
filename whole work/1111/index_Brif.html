@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Meetup is a free responsive single page bootstrap template by designerdada.com"
+    />
+    <meta name="author" content="Akash Bhadange" />
+
+    <!--=============== REMIXICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/navstyles.css" />
+    <title>Quiz English</title>
+    <link rel="icon" type="image/x-icon" href="/img/eng.png" />
+
+    <!-- Bootstrap -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body id="page-top" data-spy="scroll" data-target=".side-menu">
+    <!-- navbar -->
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <nav class="nav container">
+        <div class="nav__data">
+          <a href="#home" class="nav__logo">
+            <img
+              class="logo_head"
+              style="height: 170px; width: 290px; padding-top: 4%"
+              src="/img/wg.png"
+            />
+          </a>
+
+          <div class="nav__toggle" id="nav-toggle">
+            <i style="font-size: 30px" class="ri-menu-line nav__burger"></i>
+            <i style="font-size: 30px" class="ri-close-line nav__close"></i>
+          </div>
+        </div>
+
+        <!--=============== NAV MENU ===============-->
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li><a href="#home" class="nav__link">Home</a></li>
+
+            <li><a href="#About" class="nav__link">About US </a></li>
+
+            <li>
+              <a href="#Dependability" class="nav__link">Dependability</a>
+            </li>
+            <li><a href="#Quizzes" class="nav__link">Quizzes</a></li>
+            <li><a href="#Contact " class="nav__link">Contact US</a></li>
+
+            <li class="btnlogn">
+              <button
+                style="background-color: #2435a1; color: #ffffff"
+                class="btnS";
+                onclick=loginp()
+              >
+                Login
+              </button>
+            </li>
+            <li class="btnsinn">
+              <a href="login&Register.html"></a>
+              <button
+                style="background-color: #ffffff; color: #000000"
+                class="btnS" 
+               onclick=singup()
+              >
+                Sign in
+              </button>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container-fluid">
+      <!-- Start: BodyRocket -->
+
+      <div class="row hero-header" id="home">
+        <div class="col-md-7">
+          <h1>Test yourself in the English language ?</h1>
+          <h1>Determine your level of English language ?</h1>
+          <h1>Get your level certificate now !!</h1>
+
+          <a href="login.html" class="btn btn-lg btn-red"
+            >Let's get started
+          </a>
+        </div>
+        <div class="col-md-5 hidden-xs">
+          <img src="img/rocket.png" class="rocket animated bounce" />
+        </div>
+      </div>
+      <!-- End: BodyRocket -->
+    </div>
+    <!-- start about -->
+    <div class="row hero-header2" id="home" style="margin: 0">
+      <div class="col-md-4">
+        <h1 id="About">About US</h1>
+        <p style="font-size: 32px; padding-top:50px;">
+          Welcome to a new video! In this video, we will explain a web project
+          specialized in questions and answers In this video, we will explain a web project
+          specialized in questions and answers.
+        </p>
+      </div>
+      <div class="col-md-8 " id="videoYoutube">
+        <iframe
+          id="video"
+          src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          frameborder="0"
+          allowfullscreen
+          width="800px"
+          height="500px"
+        ></iframe>
+      </div>
+    </div>
+    <!-- <end-about> -->
+
+    <div class="container">
+      <!-- Start: Dependability -->
+      <div id="Dependability" class="row me-row content-ct">
+        <h2 class="row-title">
+          Relied upon by numerous companies and countless learners globally.
+        </h2>
+        <div class="col-md-4 feature">
+          <h3>
+            <img src="/img/linked.png" style="height: 120px; width: 300px" />
+          </h3>
+        </div>
+        <div class="col-md-4 feature">
+          <h3>
+            <img src="/img/fff.webp" style="height: 120px; width: 300px" />
+          </h3>
+        </div>
+        <div class="col-md-4 feature">
+          <h3>
+            <img src="/img/venmo.webp" style="height: 120px; width: 250px" />
+          </h3>
+        </div>
+      </div>
+      <!-- End: Dependability -->
+
+      <!-- Start: Quizzes -->
+      <h2 class="row-title" style="text-align: center">
+        Assess your skills and challenge yourself
+      </h2>
+
+      <div
+        class="row me-row content-ct speaker"
+        id="Quizzes"
+        style="
+          background-color: #ffffff;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        "
+      >
+        <div class="col-md-4 col-sm-6 feature baocard">
+          <img src="img/a1.webp" class="speaker-img" />
+          <h3>A1 (Beginner/Elementary):</h3>
+          <br />
+          <p>
+            Understands and uses basic everyday expressions, introduces
+            themselves and others, and asks and answers personal questions.
+          </p>
+          <br />
+          <div>
+            <a href="login.html" class="btn btn-lg btn-red">Start Quiz </a>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 feature baocard">
+          <img src="img/a2.webp" class="speaker-img" />
+          <h3>A2 (Pre-Intermediate)</h3>
+          <br />
+          <p>
+            Communicates in simple tasks with clear information exchange.
+            Understands basic sentences and expressions for immediate needs.
+          </p>
+          <br />
+          <div>
+            <a href="login.html" class="btn btn-lg btn-red">Start Quiz </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="row me-row content-ct speaker"
+        id="speakers"
+        style="
+          background-color: #ffffff;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        "
+      >
+        <div class="col-md-4 col-sm-6 feature baocard">
+          <img src="img/b1.webp" class="speaker-img" />
+          <h3>B1 (Intermediate)</h3>
+          <br />
+          <p>
+            Understands main points on familiar topics and handles most travel
+            situations
+          </p>
+          <br />
+          <br />
+          <div>
+            <a href="login.html" class="btn btn-lg btn-red">Start Quiz </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6 feature baocard">
+          <img src="img/b2.webp" class="speaker-img" />
+          <h3>B2 (Upper-Intermediate)</h3>
+          <br />
+          <p>
+            Understands complex texts on concrete and abstract topics, interacts
+            fluently with native speakers.
+          </p>
+          <br />
+          <div>
+            <a href="login.html" class="btn btn-lg btn-red">Start Quiz </a>
+          </div>
+        </div>
+      </div>
+      <!-- End: Quizzes -->
+    </div>
+
+    <!-- Start: Footer -->
+    <div id="Contact" class="container-fluid footer">
+      <div class="row contact">
+        <div class="col-md-6 contact-form">
+          <h3 class="content-ct">
+            <span class="ti-email"></span> Contact Form
+          </h3>
+          <form class="form-horizontal" data-toggle="validator" role="form">
+            <div class="form-group">
+              <label for="name" class="col-sm-3 control-label"
+                >Name<sup>*</sup></label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="John Doe"
+                  required
+                />
+                <div class="help-block with-errors pull-right"></div>
+                <span class="form-control-feedback" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email" class="col-sm-3 control-label"
+                >Email<sup>*</sup></label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="you@youremail.com"
+                  required
+                />
+                <div class="help-block with-errors pull-right"></div>
+                <span class="form-control-feedback" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-sm-3 control-label"
+                >Your Message<sup>*</sup></label
+              >
+              <div class="col-sm-9">
+                <textarea
+                  id="message"
+                  class="form-control"
+                  rows="3"
+                  required
+                ></textarea>
+                <div class="help-block with-errors pull-right"></div>
+                <span class="form-control-feedback" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-9">
+                <button
+                  type="submit"
+                  id="submit"
+                  name="submit"
+                  class="btn btn-yellow pull-right"
+                >
+                  Send <span class="ti-arrow-right"></span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-4 col-md-offset-1 content-ct">
+          <p
+            class="dotlottie hidden-md hidden-sm hidden-xs"
+            style="transform: translateY(-11%)"
+          >
+          <script>function loginp(){window.location = "login.html";}</script>
+          <script>function singup(){window.location = "signup.html";}</script>
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+              type="module"
+              
+            ></script>
+            <dotlottie-player
+              src="https://lottie.host/c4e3b9e9-a989-44fc-92d8-fc8f0e50a3cc/ylrJTwSPdy.json"
+              background="transparent"
+              speed="1"
+              style="width: 500px; height: 3%"
+              direction="1"
+              playMode="normal"
+              loop
+              autoplay
+            ></dotlottie-player>
+          </p>
+        </div>
+      </div>
+      <div class="row footer-credit">
+        <div class="col-md-6 col-sm-6">
+          <p>&copy; 2024, ABC Quizzes | All rights reserved.</p>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <ul class="footer-menu">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Condition</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- End: Footer -->
+
+    <!--===============  JS ===============-->
+    <script src="navbar.js"></script>
+    <script src="API_Youtube.js"></script>
+  </body>
+</html>
