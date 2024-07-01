@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="result.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="logo">
+        <a href="#home"><img src="quizz_logo.png" alt="Logo" /></a>
+      </div>
+      <ul>
+        <li><a href="#quizzes">quizzes</a></li>
+        <li><a href="#video" id="video">Video</a></li>
+        <li><a href="#contact" id="contact">Contact us</a></li>
+        <li><a href="#contact" id="enitites">Acriddeted enitites</a></li>
+        <li>
+          <a
+            href="#signup"
+            class="button"
+            style="background-color: white; color: black"
+            id="signup"
+            >Sign up</a
+          >
+        </li>
+        <li>
+          <a
+            href="#log in"
+            class="button"
+            style="background-color: #3f52e3"
+            id="login"
+            >log in</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="container4">
+      <div class="div-data">
+        <div class="div-contain-data">
+          <div class="div-dataleft">
+            <p>Score</p>
+            <p>Right answers</p>
+            <p>Wrong answers</p>
+          </div>
+          <div class="div-data-input">
+            <p id="score"></p>
+            <p id="correctAnswers"></p>
+            <p id="incorrectAnswers"></p>
+          </div>
+        </div>
+        <button id="veiw-answer-btn">Veiw answers</button>
+        <table
+          style="
+            margin-top: 4%;
+            margin-left: 4%;
+            margin-right: 4%;
+            color: white;
+          "
+          id="table"
+        >
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Your answer</th>
+              <th>Right answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>welcome</td>
+              <td>welcome</td>
+              <td>welcome</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script>
+      function loadResults() {
+        const correctAnswers =
+          JSON.parse(localStorage.getItem("correctAnswers")) || [];
+        const incorrectAnswers =
+          JSON.parse(localStorage.getItem("incorrectAnswers")) || [];
+        const resultContainer = document.getElementById("resultContainer");
+
+        correctAnswers.forEach((item, index) => {
+          const row = document.createElement("tr");
+          row.classList.add("result", "correct");
+          row.innerHTML = `<td>Question ${item.page}</td><td>Correct</td><td>-</td>`;
+          resultContainer.appendChild(row);
+        });
+
+        incorrectAnswers.forEach((item, index) => {
+          const row = document.createElement("tr");
+          row.classList.add("result", "incorrect");
+          row.innerHTML = `<td>Question ${item.page}</td><td>${item.selectedAnswer}</td><td>${item.correctAnswer}</td>`;
+          resultContainer.appendChild(row);
+        });
+
+        const totalQuestions = correctAnswers.length + incorrectAnswers.length;
+        const score = correctAnswers.length;
+        const passMark = Math.ceil(totalQuestions * 0.5);
+
+        if (score >= passMark) {
+          document.getElementById("table").style.backgroundColor = "green";
+        } else {
+          document.getElementById("table").style.backgroundColor = "red";
+        }
+
+        document.getElementById(
+          "score"
+        ).textContent = `${score} / ${totalQuestions}`;
+        document.getElementById(
+          "correctCount"
+        ).textContent = `${correctAnswers.length}`;
+        document.getElementById(
+          "incorrectCount"
+        ).textContent = `${incorrectAnswers.length}`;
+
+        // Clear localStorage after displaying results
+        localStorage.removeItem("correctAnswers");
+        localStorage.removeItem("incorrectAnswers");
+        localStorage.removeItem("remainingTime");
+      }
+
+      window.onload = loadResults;
+    </script>
+  </body>
+</html>
